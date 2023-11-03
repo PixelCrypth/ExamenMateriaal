@@ -1,4 +1,5 @@
 <x-app-layout>
+    
     <div class="flex flex-col items-center gap-3">
         <span class="text-2xl font-semibold">{{ $author->name }}</span>
         <div class="flex flex-col gap-2 items-center">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Author;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -22,8 +23,10 @@ class BookController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {       
+        // Gets all authors
+        $authors = Author::all();
+        return view('books.create',['authors' => $authors]);
     }
 
     /**
@@ -31,7 +34,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newBook = new Book([
+            'title' => $request->title,
+            'author_id' => $request->author_id,
+        ]);
+        $newBook->save();
+
+        return redirect(route('books.index'));
     }
 
     /**
@@ -39,7 +48,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return view('books.show', ['book' => $book]);
     }
 
     /**
@@ -47,15 +56,19 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return view('books.edit', ['book' => $book]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, book $book)
     {
-        //
+        $book->update([
+            'title' => $request->title,
+        ]);
+        // dd($book); // uncomment me to see the new data to be stored
+        return redirect(route('books.index'));
     }
 
     /**
@@ -63,6 +76,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+
+        return redirect(route('books.index'));
     }
 }
