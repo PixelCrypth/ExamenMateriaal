@@ -12,7 +12,10 @@ class ArtworkController extends Controller
      */
     public function index()
     {
-        //
+        // Gets all Artworks
+        $artworks = Artwork::all();
+        // sends all Artworks to Artworks.index when going to http://127.0.0.1:8000/Artworks
+        return view('authors.index' ,['artworks' => $artworks]);
     }
 
     /**

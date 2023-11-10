@@ -17,7 +17,10 @@ class ArtworkFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(), // Generates a random name for the author
+            'art_picture' => $this->faker->imageUrl(), // Generates a random image URL
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

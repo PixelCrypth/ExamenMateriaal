@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('artwork_artist', function (Blueprint $table) {
+        Schema::create('artist_artwork', function (Blueprint $table) {
             $table->id();
             $table->integer('artwork_id'); // maak artwork_id aan als int
             $table->integer('artist_id'); // maak artist_id aan als int
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('artwork_artist');
+        Schema::dropIfExists('artist_artwork');
     }
 };

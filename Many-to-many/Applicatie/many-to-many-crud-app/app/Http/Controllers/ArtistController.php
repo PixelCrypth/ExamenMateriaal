@@ -12,7 +12,10 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        //
+        // Gets all Artists
+        $artists = Artist::all();
+        // sends all Artists to Artists.index when going to http://127.0.0.1:8000/Artists
+        return view('authors.index' ,['artists' => $artists]);
     }
 
     /**
