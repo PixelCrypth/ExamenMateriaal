@@ -15,7 +15,7 @@ class ArtworkController extends Controller
         // Gets all Artworks
         $artworks = Artwork::all();
         // sends all Artworks to Artworks.index when going to http://127.0.0.1:8000/Artworks
-        return view('authors.index' ,['artworks' => $artworks]);
+        return view('artworks.index' ,['artworks' => $artworks]);
     }
 
     /**

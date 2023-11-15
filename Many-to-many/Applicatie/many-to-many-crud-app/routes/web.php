@@ -55,4 +55,3 @@ Route::resources([
 // Route::put('/artworks/{artwork}', [ArtworkController::class, 'update'])->name('artworks.update');
 // Route::delete('/artworks/{artwork}', [ArtworkController::class, 'destroy'])->name('artworks.destroy');
 require __DIR__.'/auth.php';
-

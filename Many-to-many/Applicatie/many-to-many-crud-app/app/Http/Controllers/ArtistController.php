@@ -10,13 +10,15 @@ class ArtistController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        // Gets all Artists
+        // Gets all artists
         $artists = Artist::all();
-        // sends all Artists to Artists.index when going to http://127.0.0.1:8000/Artists
-        return view('authors.index' ,['artists' => $artists]);
+        // sends all artists to artists.index when going to http://127.0.0.1:8000/artists
+        return view('artists.index' ,['artists' => $artists]);
     }
+
 
     /**
      * Show the form for creating a new resource.
