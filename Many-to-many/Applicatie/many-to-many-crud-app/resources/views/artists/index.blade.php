@@ -1,4 +1,8 @@
 <x-app-layout>
+<div class="my-3">
+        <a href="{{ route('artists.create') }}" class="border px-5 bg-green-400 text-white border-black font-semibold">Create Artist</a>
+    </div>
+
     <div class="flex flex-col p-3 gap-3 border border-black">
         @foreach ($artists as $artist)
             <div class="flex flex-row bg-background border border-black bg-[#64CCC5]">

@@ -25,7 +25,7 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        //
+        return view('artists.create');
     }
 
     /**
@@ -33,31 +33,45 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newArtist = new Artist([
+            'name' => $request->name,
+            'profile_picture' => $request->profile_picture,
+        ]);
+
+        $newArtist->save();
+
+        return redirect(route('artists.index'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Artist $artist)
+
+    public function show(artist $artist)
     {
-        //
+        return view('artists.show', ['artist' => $artist]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Artist $artist)
     {
-        //
+        return view('artists.edit', ['artist' => $artist]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Artist $artist)
+    public function update(Request $request, artist $artist)
     {
-        //
+        $artist->update([
+            'name' => $request->name,
+            'profile_picture' => $request->profile_picture,
+        ]);
+        // dd($request->all()); //use this to check if data being recieved
+        return redirect(route('artists.index'));
     }
 
     /**
@@ -65,6 +79,13 @@ class ArtistController extends Controller
      */
     public function destroy(Artist $artist)
     {
-        //
+    // Detach the artist from all artworks
+    $artist->artworks()->detach();
+
+    // Delete the artist
+    $artist->delete();
+
+    return redirect(route('artists.index'));
+
     }
 }
