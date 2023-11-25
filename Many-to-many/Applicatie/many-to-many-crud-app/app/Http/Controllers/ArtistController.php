@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\Artwork;
 use Illuminate\Http\Request;
 
 class ArtistController extends Controller
@@ -25,24 +26,31 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        return view('artists.create');
+            // Haal alle kunstwerken op
+            $artworks = Artwork::all();
+        return view('artists.create', ['artworks' => $artworks]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $newArtist = new Artist([
             'name' => $request->name,
             'profile_picture' => $request->profile_picture,
         ]);
-
+    
         $newArtist->save();
+    
+        // Attach selected artworks
+        if ($request->has('artwork')) {
+            $newArtist->artworks()->attach($request->artwork);
+        }
+        
 
+        
+    
         return redirect(route('artists.index'));
     }
-
+    
     /**
      * Display the specified resource.
      */
@@ -58,19 +66,29 @@ class ArtistController extends Controller
      */
     public function edit(Artist $artist)
     {
-        return view('artists.edit', ['artist' => $artist]);
+                    // Haal alle kunstwerken op
+                    $artworks = Artwork::all();
+        return view('artists.edit', ['artist' => $artist, 'artworks' => $artworks]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, artist $artist)
+    public function update(Request $request, Artist $artist)
     {
         $artist->update([
             'name' => $request->name,
             'profile_picture' => $request->profile_picture,
         ]);
-        // dd($request->all()); //use this to check if data being recieved
+    
+        // Sync selected artworks
+        if ($request->has('artworks')) {
+            $artist->artworks()->sync($request->artworks);
+        } else {
+            // If no artworks are selected, detach all existing artworks
+            $artist->artworks()->detach();
+        }
+    
         return redirect(route('artists.index'));
     }
 

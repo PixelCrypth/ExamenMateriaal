@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('profile_picture'); // Maakt een kolom voor de foto voor de artist
             $table->timestamps();
         });
+
+
     }
 
     /**
