@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $artists = Artist::all(); // Fetch artists from the database, adjust as needed
+    return view('artists.index', ['artists' => $artists]);
 });
 
 Route::get('/dashboard', function () {

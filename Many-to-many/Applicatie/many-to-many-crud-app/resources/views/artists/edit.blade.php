@@ -17,7 +17,7 @@
                     </option>
                 @endforeach
             </select>
-            <small class="text-gray-500">Hold down the Ctrl key (Windows/Linux) or Command key (Mac) to select multiple artworks.</small>
+            <small class="text-gray-500">Hold down the Ctrl key (Windows/Linux) or Command key (Mac) to select multiple artworks or to unselect them.</small>
 
             <input type="submit" value="Submit">
         </form>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Book;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $books = Book::all(); // Fetch books from the database, adjust as needed
+    return view('books.index', ['books' => $books]);
 })->name('frontpage');
 
 Route::get('/dashboard', function () {

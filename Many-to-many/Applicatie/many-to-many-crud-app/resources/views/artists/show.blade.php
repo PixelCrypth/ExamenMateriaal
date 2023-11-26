@@ -8,7 +8,7 @@
             <div class="flex flex-col">
                 @foreach ($artist->artworks as $artwork)
                     <div class="flex items-center gap-4">
-                        <img src="{{ $artwork->art_picture }}" alt="Art Picture" class="w-16 h-16 rounded">
+                        <img src="{{ $artwork->art_picture }}" alt="art_picture" class="w-16 h-16 rounded">
                         <a href="{{ route('artworks.show', ['artwork' => $artwork]) }}" class="font-semibold">{{ $artwork->name }}</a>
                     </div>
                 @endforeach

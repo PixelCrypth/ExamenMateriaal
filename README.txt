@@ -40,3 +40,27 @@ run php artisan key:generate
 configure .env
 
 
+
+**EXAMEN HEB JE NODIG:**
+Breeze: Snel authentificatie-opzet voor Laravel.
+Composer: Beheert externe bibliotheken en afhankelijkheden.
+Tailwind CSS: Utility-first CSS-framework voor flexibele UI.
+PHPUnit: Testframework voor het waarborgen van codekwaliteit.
+Laravel (het framework): Elegante PHP-framework voor webapplicaties.
+phpMyAdmin: Webgebaseerde tool voor MySQL-databasebeheer.
+Node.js: Nodig voor npm, asset compilation, en JS-scripts in Laravel.
+Instructie - word
+database & hosten - wamp
+Design maken - Figma
+ERD maken - dbdiagram.io
+
+
+Exensions visual studio code:
+Material Icon Theme
+PHP intelephense
+Prettier - code formatter
+Tailwind CSS IntelliSense
+vscode-pets (HUISDIEREN YUPPIE)
+
+
+Tailwind is mijn keuze omdat het een utility-first CSS-framework is. Dit betekent dat ik snel en efficiënt op maat gemaakte, responsieve interfaces kan bouwen zonder onnodige CSS-regels. Het minimaliseert overtollige styling, verbetert de leesbaarheid van mijn code, en versnelt de ontwikkelingstijd.

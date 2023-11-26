@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('artworks', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Maakt een kolom voor de naam van de artwork
-            $table->string('art_picture'); // Maakt een kolom voor de foto voor de artwork
+            $table->string('name', 255); // Maakt een kolom voor de naam van de artwork, maximale lengte van 255 tekens
+            $table->string('art_picture', 255); // Maakt een kolom voor de foto voor de artwork, maximale lengte van 255 tekens
             $table->timestamps();
         });
     }
